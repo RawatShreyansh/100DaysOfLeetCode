@@ -1,5 +1,11 @@
 class Solution {
 public:
+    const int init = []() {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+        return 0;
+    }();
     int firstUniqChar(string s) {
 
         vector<int> ans(26, 0);
