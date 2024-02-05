@@ -12,15 +12,10 @@ public:
         for (auto& i : s)
             mp[i]++;
 
-        int ans = INT_MAX;
-        int n = s.length();
-
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < s.length(); i++)
             if (mp[s[i]] == 1)
-                ans = min(ans, i);
+                return i;
 
-        if(ans == INT_MAX)
-            return -1;
-        return ans;
+        return -1;
     }
 };
