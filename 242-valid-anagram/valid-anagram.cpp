@@ -8,9 +8,18 @@ public:
     }();
     bool isAnagram(string s, string t) {
 
-        sort(s.begin() , s.end());
-        sort(t.begin() , t.end());
+        if(s.length() != t.length())
+            return false;
+        
+        vector<int> s1(26,0);
+        vector<int> t1(26,0);
 
-        return s == t;
+        for(int i = 0 ; i < s.length(); i++)
+        {
+            s1[s[i] - 'a']++;
+            t1[t[i] - 'a']++;
+        }
+
+        return s1 == t1;
     }
 };
