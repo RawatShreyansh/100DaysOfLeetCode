@@ -20,8 +20,6 @@ public:
             t1[t[i] - 'a']++;
         }
 
-        if(s1 == t1)
-            return true;
-        return false;
+        return s1 == t1;
     }
 };
