@@ -1,3 +1,4 @@
+typedef pair<char,int> p;
 class Solution {
 public:
     const int init = []() {
@@ -7,28 +8,33 @@ public:
         return 0;
     }();
     string frequencySort(string s) {
+        vector<p> vec(123);
 
-        unordered_map<char, int> mp;
-        for (char ch : s)
-            mp[ch]++;
-
-        unordered_map<int, vector<char>> bucket;
-        for (auto& i : mp)
-            bucket[i.second].push_back(i.first);
-
-        int n = s.length();
-
-        string res = "";
-        for (int i = n; i > 0; i--) {
-            for (auto& ch : bucket[i]) {
-                int temp = i;
-                while (temp > 0) {
-                    res += ch;
-                    temp--;
-                }
-            }
+        for(char &ch : s)
+        {
+            int f = vec[ch].second;
+            vec[ch] = {ch,f+1};
         }
 
+        auto lambda = [&](p &p1 , p &p2){
+            return p1.second > p2.second;
+        };
+
+        sort(vec.begin() , vec.end() , lambda);
+
+        string res ="";
+        for(int i = 0 ; i < 123 ; i++)
+        {
+            if(vec[i].second > 0)
+            {
+                char ch = vec[i].first;
+                int f = vec[i].second;
+
+                string temp = string(f,ch);
+
+                res += temp;
+            }
+        }
         return res;
     }
 };
