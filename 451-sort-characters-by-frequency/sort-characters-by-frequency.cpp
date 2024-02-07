@@ -1,4 +1,4 @@
-typedef pair<char,int> p;
+typedef pair<char,int> P;
 class Solution {
 public:
     const int init = []() {
@@ -7,33 +7,34 @@ public:
         cout.tie(nullptr);
         return 0;
     }();
-    string frequencySort(string s) {
-        vector<p> vec(123);
 
+    struct lambda{
+        bool operator()(P &p1, P &p2){
+            return p1.second < p2.second;
+        }
+    };
+
+    string frequencySort(string s) {
+
+        priority_queue<P,vector<P> , lambda> pq;
+
+        unordered_map<char,int> mp;
         for(char &ch : s)
+            mp[ch]++;
+
+        for(auto &i: mp)
         {
-            int f = vec[ch].second;
-            vec[ch] = {ch,f+1};
+            pq.push({i.first,i.second});
         }
 
-        auto lambda = [&](p &p1 , p &p2){
-            return p1.second > p2.second;
-        };
+        string res="";
 
-        sort(vec.begin() , vec.end() , lambda);
-
-        string res ="";
-        for(int i = 0 ; i < 123 ; i++)
+        while(!pq.empty())
         {
-            if(vec[i].second > 0)
-            {
-                char ch = vec[i].first;
-                int f = vec[i].second;
+            P temp = pq.top();
+            pq.pop();
 
-                string temp = string(f,ch);
-
-                res += temp;
-            }
+            res += string(temp.second , temp.first);
         }
         return res;
     }
