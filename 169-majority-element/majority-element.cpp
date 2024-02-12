@@ -49,11 +49,11 @@ public:
             }
             else if(nums[i] == ele)
             {
-                counter++;
+                ++counter;
             }
             else 
             {
-                counter--;
+                --counter;
             }
         }
 
