@@ -57,17 +57,6 @@ public:
             }
         }
 
-        int counter1 = 0;
-        for(int i = 0 ; i < n ; i++)
-        {
-            if(nums[i] == ele)
-            {
-                counter++;
-            }
-        }
-        if(counter > n/2)
-            return ele;
-        
-        return -1;
+        return ele;
     }
 };
