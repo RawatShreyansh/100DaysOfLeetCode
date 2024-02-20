@@ -9,10 +9,10 @@ public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
         int s = 0;
-        for(auto &i : nums)
-            s += i;
         n = n*(n+1) / 2;
 
-        return (n-s);
+        for(auto &i: nums)
+            n -= i;
+        return n;
     }
 };
