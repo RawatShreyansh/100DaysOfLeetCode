@@ -15,12 +15,14 @@ public:
 
         int i = 0, j = 0;
         while (i < n || j < m) {
-            if (i < n)
+            if (i < n) { 
                 res += word1[i];
-            if (j < m)
+                i++;
+            }
+            if (j < m){
                 res += word2[j];
-            i++;
-            j++;
+                j++;
+            }
         }
         return res;
     }
