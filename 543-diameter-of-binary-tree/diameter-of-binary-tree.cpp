@@ -6,31 +6,23 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
- * right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
 public:
-    int solve(TreeNode* root, int& result) {
-        if (root == nullptr)
-            return 0;
-
-        int left = solve(root->left, result);
-        int right = solve(root->right, result);
-
-        result = max(result, left + right);
-        return max(left, right) + 1;
+    int solve(TreeNode * root, int & max_value) {
+        if (root) {
+            int left = solve(root->left, max_value);
+            int right = solve(root->right, max_value);
+            max_value = max(max_value, left + right);  
+            return 1 + max(left, right); 
+        }
+        return 0; 
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        if (root == nullptr)
-            return 0;
-
-        int result = INT_MIN;
-
-        solve(root, result);
-
-        return result;
+        int max_value = 0;
+        solve(root, max_value); 
+        return max_value;
     }
 };
