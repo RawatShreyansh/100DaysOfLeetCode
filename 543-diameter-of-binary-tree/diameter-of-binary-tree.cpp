@@ -13,13 +13,6 @@
 
 class Solution {
 public:
-    const int init = []() {
-        ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
-        return 0;
-    }();
-
     int solve(TreeNode* root, int& result) {
         if (root == nullptr)
             return 0;
