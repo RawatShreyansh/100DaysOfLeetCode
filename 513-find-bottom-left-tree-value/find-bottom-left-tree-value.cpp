@@ -28,29 +28,29 @@ const int init = [](){
  */
 class Solution {
 public:
-    void f(TreeNode* root, int& ans,int& maxlevel,int level)
-    {
-        if(root==NULL)
-        {
-            return;
-        }
-        if(level>maxlevel)
-        {
-            ans=root->val;
-            maxlevel=level;
-        }
-        f(root->left,ans,maxlevel,level+1);
-        f(root->right,ans,maxlevel,level+1);
-    }
     int findBottomLeftValue(TreeNode* root) {
         int ans=0;
-        int level=0;
-        int maxlevel=0;
-        if(root->left==NULL && root->right==NULL)
-        {
-            return root->val;
+
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty()){
+            int size=q.size();
+            ans=q.front()->val;
+            for(int i=0;i<size;i++){
+                TreeNode * current=q.front();
+                q.pop();
+
+                if(current->left){
+                    q.push(current->left);
+                }
+                if(current->right){
+                    q.push(current->right);
+                }
+            }
         }
-        f(root,ans,maxlevel,level);
+
+        root->left=nullptr;
+        root->right=nullptr;
         return ans;
     }
 };
