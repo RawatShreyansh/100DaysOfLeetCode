@@ -9,15 +9,12 @@
  * };
  */
 
-const int init = []() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         ListNode* temp = head;
         for (int i = 1; i <= n; i++) {
             temp = temp->next;
