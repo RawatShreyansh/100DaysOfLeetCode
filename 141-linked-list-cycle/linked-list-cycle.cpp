@@ -6,23 +6,19 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
- const int init = [](){
-     ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
-        return 0;
- }();
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
-        
-        
+    bool hasCycle(ListNode* head) {
+
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         ListNode* slow = head;
         ListNode* fast = head;
-        while(fast != NULL && fast -> next != NULL){
-            slow = slow -> next;
-            fast =fast -> next -> next;
-            if(slow == fast)
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast)
                 return true;
         }
         return false;
