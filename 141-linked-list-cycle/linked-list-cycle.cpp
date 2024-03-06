@@ -6,12 +6,16 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ const int init = [](){
+     ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+        return 0;
+ }();
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
+        
         
         ListNode* slow = head;
         ListNode* fast = head;
