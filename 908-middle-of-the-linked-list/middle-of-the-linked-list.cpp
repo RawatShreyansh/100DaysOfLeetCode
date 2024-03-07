@@ -11,8 +11,6 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
 
         ListNode* slow = head;
         ListNode* fast = head;
