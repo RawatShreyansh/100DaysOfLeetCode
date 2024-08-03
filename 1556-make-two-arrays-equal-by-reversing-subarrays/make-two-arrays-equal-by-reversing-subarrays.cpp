@@ -1,3 +1,4 @@
+#pragma GCC optimize("O2")
 const int init = [](){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
