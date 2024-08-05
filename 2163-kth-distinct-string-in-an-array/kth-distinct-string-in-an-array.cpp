@@ -14,12 +14,8 @@ public:
         for (auto& i : arr) {
             m[i]++;
         }
-        int distinctCount = 0;
         for (string& str : arr) {
-            if (m[str] == 1) {
-                ++distinctCount;
-            }
-            if (distinctCount == k)
+            if(m[str] == 1 && --k == 0)
                 return str;
         }
         return "";
