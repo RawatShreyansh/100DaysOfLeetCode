@@ -5,13 +5,13 @@ public:
         for (auto& i : nums)
             mp[i]++;
 
-        vector<int> ans(2);
+        int pair = 0 , unpaired = 0;
 
         for (auto& i : mp) {
-            ans[0] += (i.second / 2);
-            ans[1] += (i.second % 2);
+            pair += (i.second / 2);
+            unpaired += (i.second % 2);
         }
 
-        return ans;
+        return {pair,unpaired};
     }
 };
