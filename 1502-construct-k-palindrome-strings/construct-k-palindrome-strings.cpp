@@ -14,17 +14,15 @@ public:
         if (n == k)
             return true;
 
-        unordered_map<char, long long> freq;
-        for (int i = 0; i < n; ++i) {
-            freq[s[i]]++;
+        vector<int> freq(26,0);
+        for(char &ch : s){
+            ++freq[ch-'a'];
         }
 
         int odd_count = 0;
 
-        for (auto& i : freq) {
-            if ((i.second & 1) == 1) {
-                ++odd_count;
-            }
+        for (int& i : freq) {
+            odd_count += i&1;
         }
 
        return odd_count <= k;
