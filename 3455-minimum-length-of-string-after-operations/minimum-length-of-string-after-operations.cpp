@@ -14,8 +14,9 @@ public:
 
         int res{0};
         for (int i = 0; i < 26; ++i) {
-            if(freq[i] == 0) continue; 
-            res += ((freq[i] & 1) ? 1 : 2);
+            if (freq[i]) {
+                res += ((freq[i] & 1) ? 1 : 2);
+            }
         }
 
         return res;
