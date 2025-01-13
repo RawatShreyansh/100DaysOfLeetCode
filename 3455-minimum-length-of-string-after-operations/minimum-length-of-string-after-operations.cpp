@@ -7,19 +7,17 @@ const int init = []() {
 class Solution {
 public:
     int minimumLength(string s) {
-        unordered_map<char, int> freq;
+        vector<int> freq(26, 0);
         for (char& ch : s) {
-            freq[ch]++;
+            freq[ch - 'a']++;
         }
 
-        int ans{0};
-        for (auto& i : freq) {
-            if ((i.second & 1) == 0) {
-                ans += 2;
-            } else {
-                ans += 1;
-            }
+        int res{0};
+        for (int i = 0; i < 26; ++i) {
+            if(freq[i] == 0) continue; 
+            res += ((freq[i] & 1) ? 1 : 2);
         }
-        return ans;
+
+        return res;
     }
 };
