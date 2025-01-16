@@ -1,8 +1,8 @@
-const int init = []() {
+const char init = []() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    return 0;
+    return 'c';
 }();
 class Solution {
 public:
