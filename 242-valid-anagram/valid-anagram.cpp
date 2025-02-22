@@ -17,7 +17,7 @@ public:
             alphabets[t[i]-'a']--;
         }
         for(int &i : alphabets){
-            if(i > 0){
+            if(i != 0){
                 return false;
             }
         }
