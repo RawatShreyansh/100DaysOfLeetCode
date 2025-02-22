@@ -1,4 +1,4 @@
-const char init = [](){
+const char init = []() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
@@ -7,14 +7,12 @@ const char init = [](){
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,int> mp;
-        for(int &i : nums){
-            mp[i]++;
-        }
-        for(auto &i : mp){
-            if(i.second > 1){
+        unordered_map<int, int> mp;
+        for (int& i : nums) {
+            if (mp[i] >= 1) {
                 return true;
             }
+            mp[i]++;
         }
         return false;
     }
