@@ -1,25 +1,26 @@
+const char init = [](){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 'c';
+}();
+
 class Solution {
 public:
-    const int init = []() {
-        ios_base::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
-        return 0;
-    }();
     bool isAnagram(string s, string t) {
-
-        if(s.length() != t.length())
+        if(s.length() != t.length()){
             return false;
-        
-        vector<int> s1(26,0);
-        vector<int> t1(26,0);
-
-        for(int i = 0 ; i < s.length(); i++)
-        {
-            s1[s[i] - 'a']++;
-            t1[t[i] - 'a']++;
         }
-
-        return s1 == t1;
+        vector<int> alphabets(26,0);
+        for(int i = 0 ; i < s.length() ; ++i){
+            alphabets[s[i]-'a']++;
+            alphabets[t[i]-'a']--;
+        }
+        for(int &i : alphabets){
+            if(i > 0){
+                return false;
+            }
+        }
+        return true;
     }
 };
