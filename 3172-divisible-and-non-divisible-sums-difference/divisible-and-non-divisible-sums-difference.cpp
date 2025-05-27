@@ -1,28 +1,18 @@
 class Solution {
 public:
-    constexpr int divisierSum(int n, int m) {
-        int res = 0;
-        for (int i = 1; i <= n; ++i) {
-            if (i % m == 0) {
-                res += i;
-            }
-        }
-        return res;
-    }
-
-    constexpr int nonDivisierSum(int n, int m) {
-        int res = 0;
+    constexpr int divisierandNonDisivierSum(int n, int m) {
+        int num1 = 0, num2 = 0;
         for (int i = 1; i <= n; ++i) {
             if ((i % m) != 0) {
-                res += i;
+                num1 += i;
+            } else {
+                num2 += i;
             }
         }
-        return res;
+        return (num1 - num2);
     }
     int differenceOfSums(int n, int m) {
-        const int m_divisier = divisierSum(n, m);
-        const int m_non_divisier = nonDivisierSum(n, m);
-
-        return (m_non_divisier - m_divisier);
+        const int res = divisierandNonDisivierSum(n, m);
+        return res;
     }
 };
