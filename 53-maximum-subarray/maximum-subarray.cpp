@@ -1,3 +1,8 @@
+const int start = []{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    return 0;
+}();
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
